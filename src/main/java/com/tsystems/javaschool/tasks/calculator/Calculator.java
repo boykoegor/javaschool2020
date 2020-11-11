@@ -16,6 +16,11 @@ public class Calculator {
      *                  Example: <code>(1 + 38) * 4.5 - 1 / 2.</code>
      * @return string value containing result of evaluation or null if statement is invalid
      */
+    private static final Character add = '+';
+    private static final Character substract = '-';
+    private static final Character multiply = '*';
+    private static final Character divide = '/';
+
     public String evaluate(String statement) {
         // TODO: Implement the logic here
 
@@ -58,7 +63,30 @@ public class Calculator {
     }
 
     private static double eva(List ex){
-
+        if ((ex.indexOf(add)) >= 0){
+            double a = eva(ex.subList(0, ex.indexOf(add)));
+            double b = eva(ex.subList((ex.indexOf(add)+1), ex.size()));
+            return a + b;
+        }
+        if ((ex.indexOf(substract)) >= 0){
+            double a = eva(ex.subList(0, ex.indexOf(add)));
+            double b = eva(ex.subList((ex.indexOf(add)+1), ex.size()));
+            return a - b;
+        }
+        if ((ex.indexOf(multiply)) >= 0){
+            double a = eva(ex.subList(0, ex.indexOf(add)));
+            double b = eva(ex.subList((ex.indexOf(add)+1), ex.size()));
+            return a * b;
+        }
+        if ((ex.indexOf(divide)) >= 0){
+            double a = eva(ex.subList(0, ex.indexOf(add)));
+            double b = eva(ex.subList((ex.indexOf(add)+1), ex.size()));
+            return a / b;
+        }
+        if (ex.size() != 1) {
+            throw new IllegalArgumentException();
+        }
+        return (double) ex.get(0);
     }
 
     private static boolean isNumber(int ch) {
