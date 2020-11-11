@@ -36,12 +36,24 @@ public class Calculator {
         for (int ch = in.read(); ch != end; ch = in.read()){
             if(!isValid(ch)){
                 throw new IOException();
-
             }
+            if (ch == '('){
+                expression.add(parse(in, ')'));
+            }
+            else if ()
         }
     }
 
+    private static boolean isNumber(int ch) {
+
+    }
+
+    private static boolean isOperator(int ch){
+
+    }
+
     private static boolean isValid(int ch) {
+
     }
 
 }
