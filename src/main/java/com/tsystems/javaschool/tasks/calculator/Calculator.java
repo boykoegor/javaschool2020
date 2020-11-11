@@ -40,20 +40,30 @@ public class Calculator {
             if (ch == '('){
                 expression.add(parse(in, ')'));
             }
-            else if ()
+            else if (isOperator(ch)){
+                if (sb.toString().length() > 0){
+                    expression.add(Double.parseDouble(sb.toString()));
+                    sb = new StringBuilder();
+                }
+                expression.add((char) ch);
+            }
+            else {
+                sb.append(Character.toChars(ch));
+            }
         }
     }
 
     private static boolean isNumber(int ch) {
-
+        return ch == '0' || ch == '1' || ch == '2' || ch == '3' || ch == '4' || ch == '5' || ch == '6' || ch == '7' ||
+                ch == '8' || ch == '9' || ch == '.';
     }
 
     private static boolean isOperator(int ch){
-
+        return ch == '+' || ch == '-' || ch == '*' || ch == '/';
     }
 
     private static boolean isValid(int ch) {
-
+        return isNumber(ch) || isOperator(ch) || ch == '(';
     }
 
 }
