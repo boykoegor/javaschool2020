@@ -51,6 +51,14 @@ public class Calculator {
                 sb.append(Character.toChars(ch));
             }
         }
+        if(sb.toString().length() > 0){
+            expression.add(Double.parseDouble(sb.toString()));
+        }
+        return eva(expression);
+    }
+
+    private static double eva(List ex){
+
     }
 
     private static boolean isNumber(int ch) {
