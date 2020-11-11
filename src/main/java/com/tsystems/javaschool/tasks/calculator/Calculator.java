@@ -3,6 +3,8 @@ package com.tsystems.javaschool.tasks.calculator;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Calculator {
 
@@ -20,7 +22,26 @@ public class Calculator {
         if (statement == null || statement.isEmpty()) {
             return null;
         }
-        return "";
+        try {
+            Reader in = new StringReader(statement);
+            return "";
+        }
+        catch (Exception e){
+            return null;
+        }
+    }
+    private static double parse(Reader in, int end) throws IOException {
+        StringBuilder sb = new StringBuilder();
+        List<Object> expression = new ArrayList<>();
+        for (int ch = in.read(); ch != end; ch = in.read()){
+            if(!isValid(ch)){
+                throw new IOException();
+
+            }
+        }
+    }
+
+    private static boolean isValid(int ch) {
     }
 
 }
