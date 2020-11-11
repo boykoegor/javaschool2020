@@ -29,7 +29,14 @@ public class Calculator {
         }
         try {
             Reader in = new StringReader(statement);
-            return "";
+            double n = parse(in, -1);
+            String result = String.valueOf(n);
+            if (result.endsWith(".0")){
+                return result.substring(0, result.length() - 2);
+            }
+            else {
+                return result;
+            }
         }
         catch (Exception e){
             return null;
