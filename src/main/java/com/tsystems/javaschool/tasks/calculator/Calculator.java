@@ -1,6 +1,8 @@
 package com.tsystems.javaschool.tasks.calculator;
 
 import java.io.IOException;
+import java.io.Reader;
+import java.io.StringReader;
 
 public class Calculator {
 
@@ -14,6 +16,10 @@ public class Calculator {
      */
     public String evaluate(String statement) {
         // TODO: Implement the logic here
+
+        if (statement == null || statement.isEmpty()) {
+            return null;
+        }
         return "";
     }
 
