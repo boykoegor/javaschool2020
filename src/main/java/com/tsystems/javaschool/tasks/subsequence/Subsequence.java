@@ -27,7 +27,10 @@ public class Subsequence {
                 Object n = iter.next();
                 found = Objects.equals(e, n);
             }
+            if (!iter.hasNext() && !found) {
+                return false;
+            }
         }
-        return false;
+        return true;
     }
 }
