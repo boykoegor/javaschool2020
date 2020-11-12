@@ -1,5 +1,6 @@
 package com.tsystems.javaschool.tasks.pyramid;
 
+import java.util.Collections;
 import java.util.List;
 
 public class PyramidBuilder {
@@ -19,6 +20,12 @@ public class PyramidBuilder {
             throw new CannotBuildPyramidException();
         }
 
+        try{
+            Collections.sort(inputNumbers);
+        }
+        catch (NullPointerException e) {
+            throw new CannotBuildPyramidException();
+        }
 
         return new int[0][0];
     }
