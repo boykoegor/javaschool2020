@@ -2,6 +2,7 @@ package com.tsystems.javaschool.tasks.subsequence;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 public class Subsequence {
 
@@ -20,6 +21,13 @@ public class Subsequence {
             throw new IllegalArgumentException();
         }
         Iterator iter = y.iterator();
+        for (Object e : x){
+            boolean found = false;
+            while (iter.hasNext() && !found){
+                Object n = iter.next();
+                found = Objects.equals(e, n);
+            }
+        }
         return false;
     }
 }
