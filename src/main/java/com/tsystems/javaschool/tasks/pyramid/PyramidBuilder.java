@@ -1,6 +1,7 @@
 package com.tsystems.javaschool.tasks.pyramid;
 
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 public class PyramidBuilder {
@@ -28,9 +29,14 @@ public class PyramidBuilder {
         }
 
         int[][] pyramid = new int[height][height*2-1];
+        Iterator<Integer> iter = inputNumbers.iterator();
+        for (int i = 1; i <= height; i++){
+            for (int j = 1; j <= i; j++){
+                pyramid[i-1][height - i + 2 * j] = iter.next();
+            }
+        }
 
-
-        return new int[0][0];
+        return pyramid;
     }
 
     private int checkHeight (int listSize){
