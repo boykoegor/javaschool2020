@@ -27,6 +27,9 @@ public class PyramidBuilder {
             throw new CannotBuildPyramidException();
         }
 
+        int[][] pyramid = new int[height][height*2-1];
+
+
         return new int[0][0];
     }
 
