@@ -14,7 +14,22 @@ public class PyramidBuilder {
      */
     public int[][] buildPyramid(List<Integer> inputNumbers) {
         // TODO : Implement your solution here
+
         return new int[0][0];
+    }
+
+    private int checkHeight (int listSize){
+        int height = 1;
+        if (height*(height+1) < (2*listSize)){
+            height++;
+        }
+        if (height*(height+1) == (2*listSize)){
+            return height;
+        }
+        else {
+            return 0;
+        }
+
     }
 
 
