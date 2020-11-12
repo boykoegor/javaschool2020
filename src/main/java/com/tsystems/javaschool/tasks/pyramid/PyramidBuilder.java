@@ -16,8 +16,8 @@ public class PyramidBuilder {
      */
     public int[][] buildPyramid(List<Integer> inputNumbers) {
         // TODO : Implement your solution here
-        int height = checkHeight(inputNumbers.size());
-        if (height <= 0){
+        int h1 = checkHeight(inputNumbers.size());
+        if (h1 <= 0){
             throw new CannotBuildPyramidException();
         }
 
@@ -28,11 +28,12 @@ public class PyramidBuilder {
             throw new CannotBuildPyramidException();
         }
 
-        int[][] pyramid = new int[height][height*2-1];
+        int[][] pyramid = new int[h1][h1 * 2 - 1];
         Iterator<Integer> iter = inputNumbers.iterator();
-        for (int i = 1; i <= height; i++){
-            for (int j = 1; j <= i; j++){
-                pyramid[i-1][height - i + 2 * j] = iter.next();
+        for (int i = 1; i <= h1; ++i){
+            int position = h1 - i;
+            for (int j = 0; j < i; ++j){
+                pyramid[i-1][position + j * 2] = iter.next();
             }
         }
 
@@ -40,18 +41,16 @@ public class PyramidBuilder {
     }
 
     private int checkHeight (int listSize){
+        int doubleSize = listSize*2;
         int height = 1;
-        if (height*(height+1) < (2*listSize)){
-            height++;
+        while (height*(height+1) < doubleSize){
+            height += 1;
         }
-        if (height*(height+1) == (2*listSize)){
+        if (height*(height+1) == doubleSize){
             return height;
         }
         else {
             return 0;
         }
-
     }
-
-
 }
