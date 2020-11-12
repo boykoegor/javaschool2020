@@ -15,6 +15,10 @@ public class Subsequence {
     @SuppressWarnings("rawtypes")
     public boolean find(List x, List y) {
         // TODO: Implement the logic here
+        if (x == null || y == null){
+            throw new IllegalArgumentException();
+        }
+
         return false;
     }
 }
