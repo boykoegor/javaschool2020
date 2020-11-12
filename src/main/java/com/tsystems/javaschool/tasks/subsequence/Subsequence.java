@@ -1,5 +1,6 @@
 package com.tsystems.javaschool.tasks.subsequence;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class Subsequence {
@@ -18,7 +19,7 @@ public class Subsequence {
         if (x == null || y == null){
             throw new IllegalArgumentException();
         }
-
+        Iterator iter = y.iterator();
         return false;
     }
 }
