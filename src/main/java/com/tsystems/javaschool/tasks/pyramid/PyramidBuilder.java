@@ -14,6 +14,11 @@ public class PyramidBuilder {
      */
     public int[][] buildPyramid(List<Integer> inputNumbers) {
         // TODO : Implement your solution here
+        int height = checkHeight(inputNumbers.size());
+        if (height <= 0){
+            throw new CannotBuildPyramidException();
+        }
+
 
         return new int[0][0];
     }
